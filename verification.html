@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="javascript.js"></script> -->
+    <title>Passer a 10 </title>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>Faites passer votre numéro à 10 chiffres</h1>
+            <form action="#">
+                <label for="number"> Entrer votre numéro</label>
+                <input type="number" id="number" placeholder="8 chiffres">
+                <button type="button" onclick="getValue()">Convertir</button>
+            </form>
+            <p>Voici votre nouveau numéro: <span id="afficher"></span></p>
+        </div>
+    </main>
+<script>
+    var orange = ["07", "08", "09", "47", "48", "49", "77", "78", "79", "87", "88", "89"];
+    var mtn = ["04","05", "06", "44", "45" , "46", "74", "75", "76", "84", "85", "86"];
+    var moov = ["01", "02", "03", "41", "42" , "43", "71", "72", "73", "81", "82", "83"];
+
+    
+    
+    function getValue() {
+        var input = document.getElementById("number").value;
+        
+        var test = input[0] + input[1];
+
+        if(input.length=== 8){
+            if((orange.includes(test))){
+            var nouveau = "07" + input;
+            document.getElementById("afficher").innerHTML=nouveau;
+            console.log(nouveau);
+            }
+            else if((mtn.includes(test))){
+                var nouveau = "05" + input;
+                document.getElementById("afficher").innerHTML=nouveau;
+                console.log(nouveau);
+            }
+            else if((moov.includes(test))){
+                var nouveau = "01" + input;
+                document.getElementById("afficher").innerHTML=nouveau;
+                console.log(nouveau);
+            }
+            else{
+                document.getElementById("afficher").innerHTML="Le numéro n'est pas attribué";
+            }
+        }
+        else{
+            alert("Le numéro saisi est incorrect\nVérifiez que le numéro saisi contient 8 chiffres")
+        }
+
+    }
+    
+</script>
+</body>
+</html>
+<style>
+    body{
+        font-family: Century Gothic;
+        background-color: azure;
+        height: 100vh;
+    }
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        
+    }
+    div{
+        height: 40vh;
+    }
+    h1{
+        text-align: center;
+        color: blue;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 40%;
+    }
+    input{
+        height: 5vh;
+        width: 70%;
+        margin: 7px;
+        border-radius: 5px;
+        padding: 0 10px;
+        outline: none;
+        border: 2px solid blue;
+    }
+    p{
+        text-align: center;
+    }
+    button{
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 7px;
+        height: 35px;
+        border: #407BFF;
+        background-color: #407BFF;
+    }
+    button:hover{
+        color: blue;
+        padding: 8px 12px;
+        border-radius: 7px;
+        border: 2px solid #407BFF;
+        background: none;
+    }
+    #afficher{
+        font-weight: bolder;
+    }
+</style>
